@@ -1,0 +1,143 @@
+{
+  "app": {"title": "TuPDF", "subtitle": "Modernes Tool zum Organisieren, Teilen und Zusammenführen von PDFs"},
+  "nav": {"split": "PDF teilen", "merge": "PDFs zusammenführen", "organize": "Seiten organisieren", "convert": "PDF zu Bildern", "optimize": "PDF optimieren", "recent": "Zuletzt verwendet", "settings": "Einstellungen"},
+  "settings": {
+    "title": "Einstellungen",
+    "subtitle": "Passe deine TuPDF-Erfahrung an",
+    "saved": "Einstellungen erfolgreich gespeichert!",
+    "language": {"title": "Sprache"},
+    "appearance": {"title": "Erscheinungsbild", "darkMode": {"label": "Dunkelmodus", "helper": "Dunkles Thema für bessere Anzeige bei wenig Licht"}},
+    "processing": {"title": "PDF-Verarbeitung", "autoSave": {"label": "Verarbeitete Dateien automatisch speichern", "helper": "Dateien nach der Verarbeitung automatisch speichern"}},
+    "encrypted": {"title": "Verschlüsselte PDFs", "helper": "Wenn du mit passwortgeschützten PDFs arbeitest, gib hier das Passwort ein. Es wird zum Entschlüsseln während der Verarbeitung verwendet.", "password": {"label": "PDF-Passwort", "placeholder": "Passwort für verschlüsselte PDFs eingeben", "helpText": "Dieses Passwort wird lokal gespeichert und für alle verschlüsselten PDFs verwendet"}},
+    "save": "Einstellungen speichern"
+  },
+  "common": {
+    "toggleThemeAria": "Thema umschalten",
+    "pages": "{{count}} Seiten"
+  },
+  "recent": {
+    "title": "Zuletzt verwendet",
+    "subtitle": "Ansicht und Verwaltung deiner zuletzt verarbeiteten PDF-Dateien",
+    "empty": "Keine zuletzt verwendeten Dateien gefunden. Beginne mit dem Verarbeiten eines PDFs über Teilen, Zusammenführen, Organisieren oder Konvertieren.",
+    "pages": "{{count}} Seite{{plural}}",
+    "timeago": {
+      "justNow": "Gerade eben",
+      "minutes": "Vor {{count}} Minute{{plural}}",
+      "hours": "Vor {{count}} Stunde{{plural}}",
+      "days": "Vor {{count}} Tag{{plural}}"
+    }
+  },
+  "footer": {
+    "feedback": {
+      "open": "Feedback senden",
+      "title": "Feedback senden",
+      "subtitle": "Wir freuen uns über deine Gedanken, Vorschläge oder Probleme!",
+      "name": "Name (optional)",
+      "email": "E-Mail (optional)",
+      "message": "Dein Feedback",
+      "cancel": "Abbrechen",
+      "send": "Feedback senden",
+      "sending": "Senden...",
+      "success": "Danke für dein Feedback!",
+      "errors": {
+        "empty": "Bitte gib deine Nachricht ein",
+        "failed": "Feedback konnte nicht gesendet werden. Bitte versuche es erneut.",
+        "network": "Feedback konnte nicht gesendet werden. Bitte überprüfe deine Verbindung."
+      }
+    },
+    "donate": "Spenden"
+  },
+  "workspaces": {
+    "split": {
+      "title": "PDF teilen",
+      "subtitle": "Seiten extrahieren oder dein PDF in mehrere Dateien aufteilen",
+      "steps": { "upload": "PDF hochladen", "select": "Seiten auswählen", "split": "Teilen & Herunterladen" },
+      "processing": "Verarbeitung... {{progress}}%",
+      "cancel": "Abbrechen",
+      "splitButton": "PDF teilen",
+      "processingButton": "Verarbeitung...",
+      "successTitle": "PDF erfolgreich geteilt!",
+      "successBody": "Deine PDF-Dateien wurden auf dein Gerät heruntergeladen",
+      "splitAnother": "Weiteres PDF teilen"
+    },
+    "upload": {
+      "loading": { "title": "PDF wird geladen...", "caption": "Bei großen Dateien kann dies einen Moment dauern" },
+      "dropHere": "Ziehe dein PDF hierher",
+      "clickToBrowse": "oder klicke, um Dateien auszuwählen",
+      "selectFile": "PDF-Datei auswählen",
+      "errors": {
+        "encrypted": "Gehe zu Einstellungen, um ein Passwort für verschlüsselte PDFs zu konfigurieren, oder verwende eine andere Datei.",
+        "size": "Versuche zuerst mit 'Optimieren' zu komprimieren oder verwende eine kleinere Datei.",
+        "corrupted": "Die Datei könnte beschädigt sein. Öffne sie zuerst in einem PDF-Viewer oder verwende eine andere Datei."
+      }
+    },
+    "merge": {
+      "title": "PDFs zusammenführen",
+      "subtitle": "Mehrere PDF-Dateien zu einem Dokument kombinieren",
+      "steps": { "upload": "PDFs hochladen", "arrange": "Reihenfolge festlegen", "merge": "Zusammenführen & Herunterladen" },
+      "processing": "PDFs werden zusammengeführt... {{progress}}%",
+      "addAnother": "Weiteres PDF hinzufügen",
+      "cancel": "Abbrechen",
+      "mergeButton": "{{count}} PDFs zusammenführen",
+      "processingButton": "Verarbeitung...",
+      "successTitle": "PDFs erfolgreich zusammengeführt!",
+      "successBody": "Dein zusammengeführtes PDF wurde heruntergeladen",
+      "mergeMore": "Weitere PDFs zusammenführen",
+      "filesTitle": "Dateien zum Zusammenführen ({{count}})",
+      "filesHelp": "Ziehe zum Umordnen oder verwende die Pfeile. Dateien werden in dieser Reihenfolge zusammengeführt."
+    },
+    "organize": {
+      "title": "Seiten organisieren",
+      "subtitle": "Seiten neu anordnen, löschen oder umsortieren",
+      "steps": { "upload": "PDF hochladen", "organize": "Seiten organisieren", "save": "Speichern & Herunterladen" },
+      "processing": "Seiten werden organisiert... {{progress}}%",
+      "info": "Ziehe Seiten zum Neuordnen oder lösche sie. Änderungen werden mit \"PDF speichern\" übernommen.",
+      "cancel": "Abbrechen",
+      "saveButton": "PDF speichern ({{pages}} Seiten)",
+      "processingButton": "Verarbeitung...",
+      "successTitle": "PDF erfolgreich organisiert!",
+      "successBody": "Dein organisiertes PDF wurde heruntergeladen",
+      "organizeAnother": "Weiteres PDF organisieren"
+    },
+    "convert": {
+      "title": "PDF zu Bildern",
+      "subtitle": "PDF-Seiten in hochqualitative Bilder konvertieren",
+      "steps": { "upload": "PDF hochladen", "select": "Seiten auswählen", "convert": "Konvertieren & Herunterladen" },
+      "errors": { "noDoc": "PDF-Dokument nicht verfügbar. Bitte PDF neu laden.", "convertFail": "Seiten konnten nicht in Bilder konvertiert werden" },
+      "progress": "Seiten werden konvertiert... {{progress}}% ({{done}}/{{total}} abgeschlossen)",
+      "imageFormat": { "label": "Bildformat", "png": "PNG (höhere Qualität)", "jpg": "JPG (kleinere Größe)" },
+      "cancel": "Abbrechen",
+      "convertButton": "{{count}} Seite{{plural}} konvertieren",
+      "convertingTitle": "Seiten werden in Bilder konvertiert...",
+      "convertingBody": "Bitte warten, während wir deine PDF-Seiten verarbeiten",
+      "successAlert": "Erfolgreich {{count}} Seite{{plural}} in {{format}} konvertiert!",
+      "successZip": "Alle Bilder wurden als ZIP gepackt und heruntergeladen.",
+      "successSingle": "Das Bild wurde heruntergeladen.",
+      "convertAnother": "Weiteres PDF konvertieren"
+    },
+    "optimize": {
+      "title": "PDF optimieren",
+      "subtitle": "Dateigröße reduzieren bei erhaltener Qualität",
+      "steps": { "upload": "PDF hochladen", "quality": "Qualität wählen", "optimize": "Optimieren & Herunterladen" },
+      "processing": "PDF wird optimiert... {{progress}}%",
+      "info": "Wähle den Optimierungsgrad. Niedrigere Qualität ergibt kleinere Dateigröße.",
+      "fileInfo": "Dateiinformationen",
+      "pages": "{{count}} Seiten",
+      "qualityLabel": "Optimierungsqualität",
+      "quality": {
+        "low": { "title": "Maximale Kompression", "desc": "Kleinste Datei - ideal zum Teilen" },
+        "medium": { "title": "Ausgewogen", "desc": "Gutes Gleichgewicht zwischen Größe und Qualität" },
+        "high": { "title": "Minimale Kompression", "desc": "Beste Qualität - größere Datei" }
+      },
+      "cancel": "Abbrechen",
+      "optimizeButton": "PDF optimieren",
+      "optimizingButton": "Optimieren...",
+      "successTitle": "PDF erfolgreich optimiert!",
+      "successBody": "Dein optimiertes PDF wurde heruntergeladen",
+      "originalSize": "Ursprüngliche Größe",
+      "optimizedSize": "Optimierte Größe",
+      "saved": "Ersparnis",
+      "optimizeAnother": "Weiteres PDF optimieren"
+    }
+  }
+}

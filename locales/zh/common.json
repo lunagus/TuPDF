@@ -1,0 +1,140 @@
+{
+  "app": {"title": "TuPDF", "subtitle": "现代 PDF 管理、拆分与合并工具"},
+  "nav": {"split": "拆分 PDF", "merge": "合并 PDF", "organize": "整理页面", "convert": "PDF 转图片", "optimize": "优化 PDF", "recent": "最近文件", "settings": "设置"},
+  "settings": {
+    "title": "设置",
+    "subtitle": "自定义你的 TuPDF 使用体验",
+    "saved": "设置已成功保存！",
+    "language": {"title": "语言"},
+    "appearance": {"title": "外观", "darkMode": {"label": "深色模式", "helper": "在弱光环境下使用深色主题以获得更好体验"}},
+    "processing": {"title": "PDF 处理", "autoSave": {"label": "自动保存处理后的文件", "helper": "处理完成后自动保存文件"}},
+    "encrypted": {"title": "加密 PDF", "helper": "如果处理受密码保护的 PDF，请在此输入密码。它将在处理时用于解密文件。", "password": {"label": "PDF 密码", "placeholder": "输入加密 PDF 的密码", "helpText": "此密码将本地存储，并用于所有加密的 PDF"}},
+    "save": "保存设置"
+  },
+  "common": {"toggleThemeAria": "切换主题", "pages": "{{count}} 页"},
+  "recent": {
+    "title": "最近文件",
+    "subtitle": "查看并管理你最近处理的 PDF 文件",
+    "empty": "未找到最近文件。请先使用“拆分、合并、整理或转换”等功能处理一个 PDF。",
+    "pages": "{{count}} 页",
+    "timeago": {
+      "justNow": "刚刚",
+      "minutes": "{{count}} 分钟前",
+      "hours": "{{count}} 小时前",
+      "days": "{{count}} 天前"
+    }
+  },
+  "footer": {
+    "feedback": {
+      "open": "发送反馈",
+      "title": "发送反馈",
+      "subtitle": "欢迎提出你的想法、建议或问题！",
+      "name": "姓名（可选）",
+      "email": "邮箱（可选）",
+      "message": "你的反馈",
+      "cancel": "取消",
+      "send": "发送反馈",
+      "sending": "发送中...",
+      "success": "感谢你的反馈！",
+      "errors": {
+        "empty": "请输入你的反馈内容",
+        "failed": "发送失败，请重试。",
+        "network": "发送失败，请检查你的网络连接。"
+      }
+    },
+    "donate": "捐助"
+  },
+  "workspaces": {
+    "split": {
+      "title": "拆分 PDF",
+      "subtitle": "提取页面或将 PDF 拆分为多个文件",
+      "steps": { "upload": "上传 PDF", "select": "选择页面", "split": "拆分并下载" },
+      "processing": "处理中... {{progress}}%",
+      "cancel": "取消",
+      "splitButton": "拆分 PDF",
+      "processingButton": "处理中...",
+      "successTitle": "PDF 已成功拆分！",
+      "successBody": "你的 PDF 文件已下载到设备",
+      "splitAnother": "继续拆分其他 PDF"
+    },
+    "upload": {
+      "loading": { "title": "正在加载 PDF...", "caption": "对于大文件可能需要一些时间" },
+      "dropHere": "将 PDF 拖到这里",
+      "clickToBrowse": "或点击以浏览文件",
+      "selectFile": "选择 PDF 文件",
+      "errors": {
+        "encrypted": "前往设置配置加密 PDF 的密码，或尝试其他文件。",
+        "size": "请先使用“优化”功能压缩 PDF，或使用更小的文件。",
+        "corrupted": "文件可能已损坏。请先在 PDF 查看器中打开，或使用其他文件。"
+      }
+    },
+    "merge": {
+      "title": "合并 PDF",
+      "subtitle": "将多个 PDF 文件合并为一个文档",
+      "steps": { "upload": "上传 PDF", "arrange": "调整顺序", "merge": "合并并下载" },
+      "processing": "正在合并 PDF... {{progress}}%",
+      "addAnother": "添加另一个 PDF",
+      "cancel": "取消",
+      "mergeButton": "合并 {{count}} 个 PDF",
+      "processingButton": "处理中...",
+      "successTitle": "PDF 合并成功！",
+      "successBody": "合并后的 PDF 已下载到你的设备",
+      "mergeMore": "继续合并更多 PDF",
+      "filesTitle": "待合并文件（{{count}}）",
+      "filesHelp": "拖动以重新排序或使用箭头。将按此顺序合并。"
+    },
+    "organize": {
+      "title": "整理页面",
+      "subtitle": "重新排序、删除或重排 PDF 页面",
+      "steps": { "upload": "上传 PDF", "organize": "整理页面", "save": "保存并下载" },
+      "processing": "正在整理页面... {{progress}}%",
+      "info": "拖动页面以重新排序，或点击删除按钮移除页面。点击\"保存 PDF\"后保存更改。",
+      "cancel": "取消",
+      "saveButton": "保存 PDF（{{pages}} 页）",
+      "processingButton": "处理中...",
+      "successTitle": "PDF 整理成功！",
+      "successBody": "整理后的 PDF 已下载到你的设备",
+      "organizeAnother": "继续整理其他 PDF"
+    },
+    "convert": {
+      "title": "PDF 转图片",
+      "subtitle": "将 PDF 页面转换为高质量图片",
+      "steps": { "upload": "上传 PDF", "select": "选择页面", "convert": "转换并下载" },
+      "errors": { "noDoc": "PDF 文档不可用。请重新加载 PDF。", "convertFail": "无法将页面转换为图片" },
+      "progress": "正在转换页面... {{progress}}%（已完成 {{done}}/{{total}}）",
+      "imageFormat": { "label": "图片格式", "png": "PNG（更高质量）", "jpg": "JPG（更小体积）" },
+      "cancel": "取消",
+      "convertButton": "转换 {{count}} 页",
+      "convertingTitle": "正在将页面转换为图片...",
+      "convertingBody": "请稍候，我们正在处理你的 PDF 页面",
+      "successAlert": "已成功将 {{count}} 页转换为 {{format}} 格式！",
+      "successZip": "所有图片已打包为 ZIP 并下载。",
+      "successSingle": "图片已下载。",
+      "convertAnother": "继续转换其他 PDF"
+    },
+    "optimize": {
+      "title": "优化 PDF",
+      "subtitle": "在保持质量的同时减小文件大小",
+      "steps": { "upload": "上传 PDF", "quality": "选择质量", "optimize": "优化并下载" },
+      "processing": "正在优化 PDF... {{progress}}%",
+      "info": "选择优化级别。质量越低，文件越小。",
+      "fileInfo": "文件信息",
+      "pages": "{{count}} 页",
+      "qualityLabel": "优化质量",
+      "quality": {
+        "low": { "title": "最大压缩", "desc": "最小文件 - 适合分享与网页" },
+        "medium": { "title": "均衡", "desc": "文件大小与质量的良好平衡" },
+        "high": { "title": "最小压缩", "desc": "最佳质量 - 文件体积更大" }
+      },
+      "cancel": "取消",
+      "optimizeButton": "优化 PDF",
+      "optimizingButton": "正在优化...",
+      "successTitle": "PDF 优化成功！",
+      "successBody": "优化后的 PDF 已下载",
+      "originalSize": "原始大小",
+      "optimizedSize": "优化后大小",
+      "saved": "节省",
+      "optimizeAnother": "继续优化其他 PDF"
+    }
+  }
+}

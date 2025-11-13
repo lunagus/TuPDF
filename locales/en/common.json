@@ -1,0 +1,214 @@
+{
+  "app": {
+    "title": "TuPDF",
+    "subtitle": "Modern PDF organization, splitting, and merging tool"
+  },
+  "nav": {
+    "split": "Split PDF",
+    "merge": "Merge PDFs",
+    "organize": "Organize Pages",
+    "convert": "PDF to Images",
+    "optimize": "Optimize PDF",
+    "recent": "Recent Files",
+    "settings": "Settings"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Customize your TuPDF experience",
+    "saved": "Settings saved successfully!",
+    "language": {
+      "title": "Language"
+    },
+    "appearance": {
+      "title": "Appearance",
+      "darkMode": {
+        "label": "Dark Mode",
+        "helper": "Use dark theme for better viewing in low light"
+      }
+    },
+    "processing": {
+      "title": "PDF Processing",
+      "autoSave": {
+        "label": "Auto-save processed files",
+        "helper": "Automatically save files after processing"
+      }
+    },
+    "encrypted": {
+      "title": "Encrypted PDFs",
+      "helper": "If you're working with password-protected PDFs, enter the password here. It will be used to decrypt files during processing.",
+      "password": {
+        "label": "PDF Password",
+        "placeholder": "Enter password for encrypted PDFs",
+        "helpText": "This password will be stored locally and used for all encrypted PDFs"
+      }
+    },
+    "save": "Save Settings"
+  },
+  "common": {
+    "toggleThemeAria": "Toggle theme",
+    "pages": "{{count}} pages"
+  },
+  "footer": {
+    "feedback": {
+      "open": "Send Feedback",
+      "title": "Send Feedback",
+      "subtitle": "We'd love to hear your thoughts, suggestions, or issues!",
+      "name": "Name (optional)",
+      "email": "Email (optional)",
+      "message": "Your Feedback",
+      "cancel": "Cancel",
+      "send": "Send Feedback",
+      "sending": "Sending...",
+      "success": "Thank you for your feedback!",
+      "errors": {
+        "empty": "Please enter your feedback message",
+        "failed": "Failed to send feedback. Please try again.",
+        "network": "Failed to send feedback. Please check your connection."
+      }
+    },
+    "donate": "Donate"
+  },
+  "errors": {
+    "mergeFailed": "Failed to merge PDFs. Please try again.",
+    "splitFailed": "Failed to split PDF. Please try again.",
+    "optimizeFailed": "Failed to optimize PDF. Please try again."
+  },
+  "recent": {
+    "title": "Recent Files",
+    "subtitle": "View and manage your recently processed PDF files",
+    "empty": "No recent files found. Start by processing a PDF using Split, Merge, Organize, or Convert features.",
+    "pages": "{{count}} page{{plural}}",
+    "timeago": {
+      "justNow": "Just now",
+      "minutes": "{{count}} minute{{plural}} ago",
+      "hours": "{{count}} hour{{plural}} ago",
+      "days": "{{count}} day{{plural}} ago"
+    }
+  },
+  "validation": {
+    "merge": { "needTwo": "Please upload at least 2 PDF files to merge" },
+    "organize": { "noPages": "No pages to save" },
+    "optimize": { "noFile": "No file to optimize" }
+  },
+  "workspaces": {
+    "merge": {
+      "title": "Merge PDFs",
+      "subtitle": "Combine multiple PDF files into one document",
+      "steps": { "upload": "Upload PDFs", "arrange": "Arrange Order", "merge": "Merge & Download" },
+      "processing": "Merging PDFs... {{progress}}%",
+      "addAnother": "Add Another PDF",
+      "cancel": "Cancel",
+      "mergeButton": "Merge {{count}} PDFs",
+      "processingButton": "Processing...",
+      "successTitle": "PDFs Merged Successfully!",
+      "successBody": "Your merged PDF has been downloaded to your device",
+      "mergeMore": "Merge More PDFs",
+      "filesTitle": "Files to Merge ({{count}})",
+      "filesHelp": "Drag to reorder or use the arrows. Files will be merged in this order."
+    },
+    "split": {
+      "title": "Split PDF",
+      "subtitle": "Extract pages or split your PDF into multiple files",
+      "steps": { "upload": "Upload PDF", "select": "Select Pages", "split": "Split & Download" },
+      "processing": "Processing... {{progress}}%",
+      "cancel": "Cancel",
+      "splitButton": "Split PDF",
+      "processingButton": "Processing...",
+      "successTitle": "PDF Split Successfully!",
+      "successBody": "Your PDF files have been downloaded to your device",
+      "splitAnother": "Split Another PDF"
+    },
+    "organize": {
+      "title": "Organize Pages",
+      "subtitle": "Reorder, delete, or rearrange pages from your PDF",
+      "steps": { "upload": "Upload PDF", "organize": "Organize Pages", "save": "Save & Download" },
+      "processing": "Organizing pages... {{progress}}%",
+      "info": "Drag pages to reorder them or click the delete button to remove pages. Changes will be saved when you click \"Save PDF\".",
+      "cancel": "Cancel",
+      "saveButton": "Save PDF ({{pages}} pages)",
+      "processingButton": "Processing...",
+      "successTitle": "PDF Organized Successfully!",
+      "successBody": "Your organized PDF has been downloaded to your device",
+      "organizeAnother": "Organize Another PDF"
+    },
+    "convert": {
+      "title": "PDF to Images",
+      "subtitle": "Convert PDF pages to high-quality images",
+      "steps": { "upload": "Upload PDF", "select": "Select Pages", "convert": "Convert & Download" },
+      "errors": { "noDoc": "PDF document not available. Please reload the PDF.", "convertFail": "Failed to convert PDF pages to images" },
+      "progress": "Converting pages... {{progress}}% ({{done}}/{{total}} completed)",
+      "imageFormat": {
+        "label": "Image Format",
+        "png": "PNG (Higher Quality)",
+        "jpg": "JPG (Smaller Size)"
+      },
+      "cancel": "Cancel",
+      "convertButton": "Convert {{count}} Page{{plural}}",
+      "convertingTitle": "Converting pages to images...",
+      "convertingBody": "Please wait while we process your PDF pages",
+      "successAlert": "Successfully converted {{count}} page{{plural}} to {{format}} format!",
+      "successZip": "All images have been packaged in a ZIP file and downloaded.",
+      "successSingle": "The image has been downloaded.",
+      "convertAnother": "Convert Another PDF"
+    },
+    "optimize": {
+      "title": "Optimize PDF",
+      "subtitle": "Reduce file size while maintaining quality",
+      "steps": { "upload": "Upload PDF", "quality": "Select Quality", "optimize": "Optimize & Download" },
+      "processing": "Optimizing PDF... {{progress}}%",
+      "info": "Choose the optimization level. Lower quality means smaller file size but may reduce image quality.",
+      "fileInfo": "File Information",
+      "pages": "{{count}} pages",
+      "qualityLabel": "Optimization Quality",
+      "quality": {
+        "low": { "title": "Maximum Compression", "desc": "Smallest file size - Best for sharing and web use" },
+        "medium": { "title": "Balanced", "desc": "Good balance between size and quality" },
+        "high": { "title": "Minimal Compression", "desc": "Best quality - Larger file size" }
+      },
+      "cancel": "Cancel",
+      "optimizeButton": "Optimize PDF",
+      "optimizingButton": "Optimizing...",
+      "successTitle": "PDF Optimized Successfully!",
+      "successBody": "Your optimized PDF has been downloaded",
+      "originalSize": "Original Size",
+      "optimizedSize": "Optimized Size",
+      "saved": "Saved",
+      "optimizeAnother": "Optimize Another PDF"
+    },
+    "upload": {
+      "loading": { "title": "Loading PDF...", "caption": "This may take a moment for large files" },
+      "dropHere": "Drop your PDF here",
+      "clickToBrowse": "or click to browse files",
+      "selectFile": "Select PDF File",
+      "errors": {
+        "encrypted": "Go to Settings to configure a password for encrypted PDFs, or try a different file.",
+        "size": "Try compressing the PDF first using the Optimize feature, or use a smaller file.",
+        "corrupted": "The file may be corrupted. Try opening it in a PDF viewer first, or use a different file."
+      }
+    },
+    "pages": {
+      "title": "Select Pages",
+      "selected": "{{count}} selected",
+      "view": {
+        "small": "Small thumbnails",
+        "large": "Large thumbnails",
+        "list": "List view"
+      },
+      "selectAll": "Select All",
+      "deselectAll": "Deselect All",
+      "rotateLeft": "Rotate left",
+      "rotateRight": "Rotate right",
+      "loading": "Loading...",
+      "page": "Page {{num}}",
+      "dimensions": "{{w}} × {{h}} pts"
+    },
+    "splitOptions": {
+      "title": "Split Mode",
+      "modes": {
+        "extract": { "title": "Extract Pages", "desc": "Extract selected pages into a single new PDF file", "chip": "{{count}} pages selected", "chipEmpty": "No pages selected" },
+        "ranges": { "title": "Split Selected", "desc": "Split each selected page into a separate PDF file", "chip": "Will create {{count}} PDF files", "chipEmpty": "No pages selected" },
+        "every": { "title": "Split All Pages", "desc": "Split every page into a separate PDF file", "chip": "Will create {{count}} PDF files" }
+      }
+    }
+  }
+}

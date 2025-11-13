@@ -1,0 +1,140 @@
+{
+  "app": {"title": "TuPDF", "subtitle": "Strumento moderno per organizzare, dividere e unire PDF"},
+  "nav": {"split": "Dividi PDF", "merge": "Unisci PDF", "organize": "Organizza pagine", "convert": "PDF in Immagini", "optimize": "Ottimizza PDF", "recent": "File recenti", "settings": "Impostazioni"},
+  "settings": {
+    "title": "Impostazioni",
+    "subtitle": "Personalizza la tua esperienza con TuPDF",
+    "saved": "Impostazioni salvate con successo!",
+    "language": {"title": "Lingua"},
+    "appearance": {"title": "Aspetto", "darkMode": {"label": "Modalità scura", "helper": "Usa il tema scuro per una migliore visione in condizioni di scarsa luminosità"}},
+    "processing": {"title": "Elaborazione PDF", "autoSave": {"label": "Salva automaticamente i file elaborati", "helper": "Salva automaticamente dopo l'elaborazione"}},
+    "encrypted": {"title": "PDF crittografati", "helper": "Se lavori con PDF protetti da password, inserisci qui la password. Verrà utilizzata per decrittare i file durante l'elaborazione.", "password": {"label": "Password PDF", "placeholder": "Inserisci la password per i PDF crittografati", "helpText": "Questa password verrà memorizzata localmente e usata per tutti i PDF crittografati"}},
+    "save": "Salva impostazioni"
+  },
+  "recent": {
+    "title": "File recenti",
+    "subtitle": "Visualizza e gestisci i tuoi file PDF elaborati di recente",
+    "empty": "Nessun file recente trovato. Inizia elaborando un PDF con le funzioni Dividi, Unisci, Organizza o Converti.",
+    "pages": "{{count}} pagina{{plural}}",
+    "timeago": {
+      "justNow": "Proprio ora",
+      "minutes": "{{count}} minuto{{plural}} fa",
+      "hours": "{{count}} ora{{plural}} fa",
+      "days": "{{count}} giorno{{plural}} fa"
+    }
+  },
+  "common": {"toggleThemeAria": "Cambia tema", "pages": "{{count}} pagina{{plural}}"},
+  "footer": {
+    "feedback": {
+      "open": "Invia feedback",
+      "title": "Invia feedback",
+      "subtitle": "Ci farebbe piacere conoscere i tuoi pensieri, suggerimenti o problemi!",
+      "name": "Nome (opzionale)",
+      "email": "Email (opzionale)",
+      "message": "Il tuo feedback",
+      "cancel": "Annulla",
+      "send": "Invia",
+      "sending": "Invio...",
+      "success": "Grazie per il tuo feedback!",
+      "errors": {
+        "empty": "Per favore inserisci il tuo messaggio",
+        "failed": "Invio del feedback non riuscito. Riprova.",
+        "network": "Invio del feedback non riuscito. Controlla la connessione."
+      }
+    },
+    "donate": "Dona"
+  },
+  "workspaces": {
+    "split": {
+      "title": "Dividi PDF",
+      "subtitle": "Estrai pagine o dividi il tuo PDF in più file",
+      "steps": { "upload": "Carica PDF", "select": "Seleziona pagine", "split": "Dividi e scarica" },
+      "processing": "Elaborazione... {{progress}}%",
+      "cancel": "Annulla",
+      "splitButton": "Dividi PDF",
+      "processingButton": "Elaborazione...",
+      "successTitle": "PDF diviso con successo!",
+      "successBody": "I tuoi file PDF sono stati scaricati sul dispositivo",
+      "splitAnother": "Dividi un altro PDF"
+    },
+    "upload": {
+      "loading": { "title": "Caricamento PDF...", "caption": "Potrebbe richiedere qualche istante per file di grandi dimensioni" },
+      "dropHere": "Trascina qui il tuo PDF",
+      "clickToBrowse": "o clicca per sfogliare i file",
+      "selectFile": "Seleziona file PDF",
+      "errors": {
+        "encrypted": "Vai alle Impostazioni per configurare una password per i PDF crittografati, o prova un altro file.",
+        "size": "Prova prima a comprimere il PDF usando la funzione Ottimizza, oppure usa un file più piccolo.",
+        "corrupted": "Il file potrebbe essere danneggiato. Prova ad aprirlo in un visualizzatore PDF o usa un altro file."
+      }
+    },
+    "merge": {
+      "title": "Unisci PDF",
+      "subtitle": "Combina più file PDF in un unico documento",
+      "steps": { "upload": "Carica PDF", "arrange": "Ordina", "merge": "Unisci e scarica" },
+      "processing": "Unione dei PDF... {{progress}}%",
+      "addAnother": "Aggiungi un altro PDF",
+      "cancel": "Annulla",
+      "mergeButton": "Unisci {{count}} PDF",
+      "processingButton": "Elaborazione...",
+      "successTitle": "PDF uniti con successo!",
+      "successBody": "Il tuo PDF unito è stato scaricato",
+      "mergeMore": "Unisci altri PDF",
+      "filesTitle": "File da unire ({{count}})",
+      "filesHelp": "Trascina per riordinare o usa le frecce. I file verranno uniti in questo ordine."
+    },
+    "organize": {
+      "title": "Organizza pagine",
+      "subtitle": "Riordina, elimina o riorganizza le pagine del tuo PDF",
+      "steps": { "upload": "Carica PDF", "organize": "Organizza pagine", "save": "Salva e scarica" },
+      "processing": "Organizzazione pagine... {{progress}}%",
+      "info": "Trascina per riordinare o elimina pagine. Le modifiche verranno salvate cliccando \"Salva PDF\".",
+      "cancel": "Annulla",
+      "saveButton": "Salva PDF ({{pages}} pagine)",
+      "processingButton": "Elaborazione...",
+      "successTitle": "PDF organizzato con successo!",
+      "successBody": "Il tuo PDF organizzato è stato scaricato",
+      "organizeAnother": "Organizza un altro PDF"
+    },
+    "convert": {
+      "title": "PDF in Immagini",
+      "subtitle": "Converti le pagine PDF in immagini di alta qualità",
+      "steps": { "upload": "Carica PDF", "select": "Seleziona pagine", "convert": "Converti e scarica" },
+      "errors": { "noDoc": "Documento PDF non disponibile. Ricarica il PDF.", "convertFail": "Impossibile convertire le pagine in immagini" },
+      "progress": "Conversione pagine... {{progress}}% ({{done}}/{{total}} completate)",
+      "imageFormat": { "label": "Formato immagine", "png": "PNG (Qualità superiore)", "jpg": "JPG (Dimensione minore)" },
+      "cancel": "Annulla",
+      "convertButton": "Converti {{count}} pagina{{plural}}",
+      "convertingTitle": "Conversione delle pagine in immagini...",
+      "convertingBody": "Attendi mentre elaboriamo le pagine del tuo PDF",
+      "successAlert": "Convertite con successo {{count}} pagina{{plural}} in formato {{format}}!",
+      "successZip": "Tutte le immagini sono state compresse in un file ZIP e scaricate.",
+      "successSingle": "L'immagine è stata scaricata.",
+      "convertAnother": "Converti un altro PDF"
+    },
+    "optimize": {
+      "title": "Ottimizza PDF",
+      "subtitle": "Riduci la dimensione del file mantenendo la qualità",
+      "steps": { "upload": "Carica PDF", "quality": "Seleziona qualità", "optimize": "Ottimizza e scarica" },
+      "processing": "Ottimizzazione PDF... {{progress}}%",
+      "info": "Scegli il livello di ottimizzazione. Qualità più bassa significa file più piccolo.",
+      "fileInfo": "Informazioni file",
+      "pages": "{{count}} pagine",
+      "qualityLabel": "Qualità di ottimizzazione",
+      "quality": {
+        "low": { "title": "Compressione massima", "desc": "File più piccolo - ideale per la condivisione" },
+        "medium": { "title": "Bilanciato", "desc": "Buon equilibrio tra dimensione e qualità" },
+        "high": { "title": "Compressione minima", "desc": "Migliore qualità - dimensione maggiore" }
+      },
+      "cancel": "Annulla",
+      "optimizeButton": "Ottimizza PDF",
+      "optimizingButton": "Ottimizzazione...",
+      "successTitle": "PDF ottimizzato con successo!",
+      "successBody": "Il tuo PDF ottimizzato è stato scaricato",
+      "originalSize": "Dimensione originale",
+      "optimizedSize": "Dimensione ottimizzata",
+      "saved": "Risparmio",
+      "optimizeAnother": "Ottimizza un altro PDF"
+    }
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "app": {"title": "TuPDF", "subtitle": "Herramienta moderna para organizar, dividir y unir PDF"},
+  "nav": {"split": "Dividir PDF", "merge": "Unir PDF", "organize": "Organizar páginas", "convert": "PDF a Imágenes", "optimize": "Optimizar PDF", "recent": "Archivos recientes", "settings": "Configuración"},
+  "settings": {
+    "title": "Configuración",
+    "subtitle": "Personaliza tu experiencia en TuPDF",
+    "saved": "¡Configuración guardada con éxito!",
+    "language": {"title": "Idioma"},
+    "appearance": {"title": "Apariencia", "darkMode": {"label": "Modo oscuro", "helper": "Usa el tema oscuro para mejor visualización con poca luz"}},
+    "processing": {"title": "Procesamiento de PDF", "autoSave": {"label": "Auto-guardar archivos procesados", "helper": "Guardar automáticamente después de procesar"}},
+    "encrypted": {"title": "PDF cifrados", "helper": "Si trabajas con PDFs protegidos con contraseña, ingrésala aquí. Se usará para descifrar durante el proceso.", "password": {"label": "Contraseña PDF", "placeholder": "Ingresa la contraseña para PDFs cifrados", "helpText": "Esta contraseña se almacenará localmente y se usará para todos los PDFs cifrados"}},
+    "save": "Guardar configuración"
+  },
+  "recent": {
+    "title": "Archivos recientes",
+    "subtitle": "Ve y administra tus archivos PDF procesados recientemente",
+    "empty": "No se encontraron archivos recientes. Comienza procesando un PDF con las funciones Dividir, Unir, Organizar o Convertir.",
+    "pages": "{{count}} página{{plural}}",
+    "timeago": {
+      "justNow": "Justo ahora",
+      "minutes": "Hace {{count}} minuto{{plural}}",
+      "hours": "Hace {{count}} hora{{plural}}",
+      "days": "Hace {{count}} día{{plural}}"
+    }
+  },
+  "common": {"toggleThemeAria": "Cambiar tema", "pages": "{{count}} página{{plural}}"},
+  "footer": {
+    "feedback": {
+      "open": "Enviar comentarios",
+      "title": "Enviar comentarios",
+      "subtitle": "¡Nos encantaría conocer tus opiniones, sugerencias o problemas!",
+      "name": "Nombre (opcional)",
+      "email": "Correo (opcional)",
+      "message": "Tu comentario",
+      "cancel": "Cancelar",
+      "send": "Enviar comentarios",
+      "sending": "Enviando...",
+      "success": "¡Gracias por tus comentarios!",
+      "errors": {
+        "empty": "Por favor, escribe tu mensaje",
+        "failed": "No se pudo enviar el comentario. Inténtalo de nuevo.",
+        "network": "No se pudo enviar el comentario. Revisa tu conexión."
+      }
+    },
+    "donate": "Donar"
+  },
+  "workspaces": {
+    "split": {
+      "title": "Dividir PDF",
+      "subtitle": "Extrae páginas o divide tu PDF en varios archivos",
+      "steps": { "upload": "Subir PDF", "select": "Seleccionar páginas", "split": "Dividir y descargar" },
+      "processing": "Procesando... {{progress}}%",
+      "cancel": "Cancelar",
+      "splitButton": "Dividir PDF",
+      "processingButton": "Procesando...",
+      "successTitle": "¡PDF dividido con éxito!",
+      "successBody": "Tus archivos PDF se han descargado en tu dispositivo",
+      "splitAnother": "Dividir otro PDF"
+    },
+    "upload": {
+      "loading": { "title": "Cargando PDF...", "caption": "Esto puede tardar un momento para archivos grandes" },
+      "dropHere": "Suelta tu PDF aquí",
+      "clickToBrowse": "o haz clic para buscar archivos",
+      "selectFile": "Seleccionar archivo PDF",
+      "errors": {
+        "encrypted": "Ve a Configuración para configurar una contraseña para PDFs cifrados, o prueba con otro archivo.",
+        "size": "Intenta comprimir el PDF primero usando la función Optimizar, o usa un archivo más pequeño.",
+        "corrupted": "El archivo puede estar dañado. Intenta abrirlo primero en un visor de PDF, o usa otro archivo."
+      }
+    },
+    "merge": {
+      "title": "Unir PDF",
+      "subtitle": "Combina varios archivos PDF en un solo documento",
+      "steps": { "upload": "Subir PDF", "arrange": "Ordenar", "merge": "Unir y descargar" },
+      "processing": "Uniendo PDFs... {{progress}}%",
+      "addAnother": "Agregar otro PDF",
+      "cancel": "Cancelar",
+      "mergeButton": "Unir {{count}} PDF",
+      "processingButton": "Procesando...",
+      "successTitle": "¡PDFs unidos correctamente!",
+      "successBody": "Tu PDF combinado se ha descargado en tu dispositivo",
+      "mergeMore": "Unir más PDF",
+      "filesTitle": "Archivos a unir ({{count}})",
+      "filesHelp": "Arrastra para reordenar o usa las flechas. Los archivos se unirán en este orden."
+    },
+    "organize": {
+      "title": "Organizar páginas",
+      "subtitle": "Reordena, elimina o reorganiza páginas de tu PDF",
+      "steps": { "upload": "Subir PDF", "organize": "Organizar páginas", "save": "Guardar y descargar" },
+      "processing": "Organizando páginas... {{progress}}%",
+      "info": "Arrastra para reordenar o elimina páginas. Los cambios se guardarán al hacer clic en \"Guardar PDF\".",
+      "cancel": "Cancelar",
+      "saveButton": "Guardar PDF ({{pages}} páginas)",
+      "processingButton": "Procesando...",
+      "successTitle": "¡PDF organizado con éxito!",
+      "successBody": "Tu PDF organizado se ha descargado en tu dispositivo",
+      "organizeAnother": "Organizar otro PDF"
+    },
+    "convert": {
+      "title": "PDF a Imágenes",
+      "subtitle": "Convierte páginas PDF en imágenes de alta calidad",
+      "steps": { "upload": "Subir PDF", "select": "Seleccionar páginas", "convert": "Convertir y descargar" },
+      "errors": { "noDoc": "Documento PDF no disponible. Vuelve a cargar el PDF.", "convertFail": "No se pudo convertir las páginas a imágenes" },
+      "progress": "Convirtiendo páginas... {{progress}}% ({{done}}/{{total}} completadas)",
+      "imageFormat": { "label": "Formato de imagen", "png": "PNG (Mayor calidad)", "jpg": "JPG (Tamaño menor)" },
+      "cancel": "Cancelar",
+      "convertButton": "Convertir {{count}} página{{plural}}",
+      "convertingTitle": "Convirtiendo páginas a imágenes...",
+      "convertingBody": "Espera mientras procesamos tus páginas PDF",
+      "successAlert": "¡Convertidas {{count}} página{{plural}} a formato {{format}}!",
+      "successZip": "Todas las imágenes se han empaquetado en un ZIP y descargado.",
+      "successSingle": "La imagen se ha descargado.",
+      "convertAnother": "Convertir otro PDF"
+    },
+    "pages": {
+      "title": "Seleccionar páginas",
+      "selected": "{{count}} seleccionada{{plural}}",
+      "view": {
+        "small": "Miniaturas pequeñas",
+        "large": "Miniaturas grandes",
+        "list": "Vista de lista"
+      },
+      "selectAll": "Seleccionar todo",
+      "deselectAll": "Deseleccionar todo",
+      "rotateLeft": "Girar a la izquierda",
+      "rotateRight": "Girar a la derecha",
+      "loading": "Cargando...",
+      "page": "Página {{num}}",
+      "dimensions": "{{w}} × {{h}} pts"
+    },
+    "optimize": {
+      "title": "Optimizar PDF",
+      "subtitle": "Reduce el tamaño manteniendo la calidad",
+      "steps": { "upload": "Subir PDF", "quality": "Seleccionar calidad", "optimize": "Optimizar y descargar" },
+      "processing": "Optimizando PDF... {{progress}}%",
+      "info": "Elige el nivel de optimización. Menor calidad significa archivo más pequeño.",
+      "fileInfo": "Información del archivo",
+      "pages": "{{count}} páginas",
+      "qualityLabel": "Calidad de optimización",
+      "quality": {
+        "low": { "title": "Compresión máxima", "desc": "Archivo más pequeño - Ideal para compartir" },
+        "medium": { "title": "Equilibrado", "desc": "Buen balance entre tamaño y calidad" },
+        "high": { "title": "Compresión mínima", "desc": "Mejor calidad - Tamaño mayor" }
+      },
+      "cancel": "Cancelar",
+      "optimizeButton": "Optimizar PDF",
+      "optimizingButton": "Optimizando...",
+      "successTitle": "¡PDF optimizado con éxito!",
+      "successBody": "Tu PDF optimizado se ha descargado",
+      "originalSize": "Tamaño original",
+      "optimizedSize": "Tamaño optimizado",
+      "saved": "Ahorro",
+      "optimizeAnother": "Optimizar otro PDF"
+    }
+  }
+}
