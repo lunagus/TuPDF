@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-# TuPDF
-
-Fast, privacy-friendly PDF toolkit for the browser. Organize, split, merge, convert, and optimize PDFs with a clean, responsive UI and full internationalization.
-=======
 # 📃 TuPDF
->>>>>>> d5eba03866949090759ce6f51fe1493b6b89e103
 
 <p align="center">
   <a href="https://nextjs.org/"><img alt="Next.js" src="https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white"></a>
@@ -16,33 +10,6 @@ Fast, privacy-friendly PDF toolkit for the browser. Organize, split, merge, conv
   <a href="https://mozilla.github.io/pdf.js/"><img alt="PDF.js" src="https://img.shields.io/badge/PDF.js-EC1C24?logo=adobeacrobatreader&logoColor=white"></a>
 </p>
 
-<<<<<<< HEAD
-## Features
-- **Split PDF**. Extract pages, split to ranges, or split every page.
-- **Merge PDFs**. Reorder and combine multiple PDFs.
-- **Organize pages**. Reorder and delete pages visually.
-- **Convert pages to images**. PNG/JPG output, zipped when multiple.
-- **Optimize/Compress**. Balance between quality and size.
-- **Responsive UI**. Mobile-first Drawer sidebar and sticky top bar.
-- **i18n**. Full internationalization with locale detection and persistence.
-- **Privacy**. Processing happens in the browser via Web APIs.
-
-## Tech stack
-- Next.js, React, TypeScript
-- MUI (Material UI) for components and layout
-- i18next + react-i18next for translations
-- pdf-lib for PDF write/manipulation; PDF.js for rendering/preview
-
-## Supported languages
-- English (en)
-- Español (es)
-- Deutsch (de)
-- Français (fr)
-- 中文 (zh)
-- हिन्दी (hi)
-- Português (pt)
-- Italiano (it)
-=======
 ---
 
 ## 🚀 Overview
@@ -158,7 +125,6 @@ pnpm install
 
 # Or using yarn
 yarn
->>>>>>> d5eba03866949090759ce6f51fe1493b6b89e103
 
 ## Getting started
 ### Prerequisites
@@ -186,11 +152,7 @@ npm run build
 npm start
 ```
 
-<<<<<<< HEAD
-## Project structure (key parts)
-=======
 ## 🗂️ Project Structure
->>>>>>> d5eba03866949090759ce6f51fe1493b6b89e103
 - `app/` Next.js app routes (merge, split, organize, convert, optimize, recent, settings)
 - `components/` UI and feature components
   - `layout/main-layout.tsx` Drawer sidebar + top bar
@@ -199,33 +161,11 @@ npm start
 - `locales/<lang>/common.json` i18n dictionaries
 - `lib/i18n.ts` i18next config and locale utilities
 
-<<<<<<< HEAD
-## Internationalization
-=======
 ## 🌍 Internationalization
->>>>>>> d5eba03866949090759ce6f51fe1493b6b89e103
 - Default locale is auto-detected and saved in localStorage.
 - Add/modify strings under `locales/<lang>/common.json`.
 - Use `const { t } = useTranslation()` and call `t("namespace.key")` in components.
 
-<<<<<<< HEAD
-## Scripts
-- `dev` start development server
-- `build` production build
-- `start` start production server
-- `lint` run Next.js ESLint
-
-## Notes
-- PDF work happens client-side; large files may be memory-intensive in the browser.
-- Some locales may fall back to English for missing strings; contributions welcome.
-
-## Contributing
-Issues and PRs are welcome. Please keep translations and accessibility in mind.
-
-## License
-Add your license here (MIT recommended).
-=======
 ## ⚠️ Notes
 - PDF work happens client-side; large files may be memory-intensive in the browser.
 - Some locales may fall back to English for missing strings; contributions welcome.
->>>>>>> d5eba03866949090759ce6f51fe1493b6b89e103
