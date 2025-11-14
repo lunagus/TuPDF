@@ -1,14 +1,28 @@
 "use client"
 
-import { useState } from "react"
-import { Box, Typography, Paper, Button, Stack, Alert, Stepper, Step, StepLabel, LinearProgress } from "@mui/material"
+import { useMemo, useState } from "react"
+import {
+  Box,
+  Typography,
+  Paper,
+  Button,
+  Stack,
+  Alert,
+  Stepper,
+  Step,
+  StepLabel,
+  LinearProgress,
+  Tabs,
+  Tab,
+  Chip,
+} from "@mui/material"
 import ReorderIcon from "@mui/icons-material/Reorder"
 import DownloadIcon from "@mui/icons-material/Download"
 import RestartAltIcon from "@mui/icons-material/RestartAlt"
 import { PDFUpload } from "@/components/pdf/pdf-upload"
 import { OrganizePageGrid } from "@/components/organize/organize-page-grid"
 import type { PDFFileInfo, PDFPageInfo } from "@/lib/pdf-utils"
-import { reorderPages, downloadPDF } from "@/lib/pdf-utils"
+import { downloadPDF, buildTuPDFFilename, mergePagesFromFiles } from "@/lib/pdf-utils"
 import { useTranslation } from "react-i18next"
 
 const stepsKeys = [
@@ -17,31 +31,53 @@ const stepsKeys = [
   "workspaces.organize.steps.save",
 ] as const
 
+type OrganizePage = PDFPageInfo & { sourceIndex: number }
+
 export function OrganizePDFWorkspace() {
   const { t } = useTranslation()
   const [activeStep, setActiveStep] = useState(0)
-  const [uploadedFile, setUploadedFile] = useState<PDFFileInfo | null>(null)
-  const [organizedPages, setOrganizedPages] = useState<PDFPageInfo[]>([])
+  const [uploadedFiles, setUploadedFiles] = useState<PDFFileInfo[]>([])
+  const [organizedPages, setOrganizedPages] = useState<OrganizePage[]>([])
   const [isProcessing, setIsProcessing] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [progress, setProgress] = useState(0)
+  const [activeSourceFilter, setActiveSourceFilter] = useState<number | "all">("all")
 
   const handleFileLoaded = (fileInfo: PDFFileInfo) => {
-    setUploadedFile(fileInfo)
-    setOrganizedPages(fileInfo.pages)
+    setUploadedFiles((prev) => {
+      const next = [...prev, fileInfo]
+      const combinedPages: OrganizePage[] = []
+
+      next.forEach((file, sourceIndex) => {
+        file.pages.forEach((page) => {
+          combinedPages.push({ ...page, sourceIndex })
+        })
+      })
+
+      setOrganizedPages(combinedPages)
+      return next
+    })
+
     setActiveStep(1)
   }
 
-  const handleReorderPages = (newOrder: PDFPageInfo[]) => {
+  const handleReorderPages = (newOrder: OrganizePage[]) => {
     setOrganizedPages(newOrder)
   }
 
-  const handleDeletePage = (pageNumber: number) => {
-    setOrganizedPages((prev) => prev.filter((page) => page.pageNumber !== pageNumber))
+  const handleDeletePage = (sourceIndex: number, pageNumber: number) => {
+    setOrganizedPages((prev) => prev.filter((page) => !(page.sourceIndex === sourceIndex && page.pageNumber === pageNumber)))
   }
 
+  const visiblePages = useMemo(() => {
+    if (activeSourceFilter === "all") {
+      return organizedPages
+    }
+    return organizedPages.filter((page) => page.sourceIndex === activeSourceFilter)
+  }, [organizedPages, activeSourceFilter])
+
   const handleSave = async () => {
-    if (!uploadedFile || organizedPages.length === 0) {
+    if (uploadedFiles.length === 0 || organizedPages.length === 0) {
       setError(t("validation.organize.noPages", "No pages to save"))
       return
     }
@@ -52,13 +88,17 @@ export function OrganizePDFWorkspace() {
 
     try {
       setProgress(30)
-      const newOrder = organizedPages.map((page) => page.pageNumber)
+      const orderedPages = organizedPages.map((page) => ({
+        sourceIndex: page.sourceIndex,
+        pageNumber: page.pageNumber,
+      }))
       setProgress(60)
-      const reorderedPdfBytes = await reorderPages(uploadedFile.pdfDoc, newOrder)
+      const mergedBytes = await mergePagesFromFiles(uploadedFiles, orderedPages)
       setProgress(90)
 
-      const filename = `${uploadedFile.name.replace(".pdf", "")}_organized.pdf`
-      downloadPDF(reorderedPdfBytes, filename)
+      const firstName = uploadedFiles[0].name
+      const filename = buildTuPDFFilename(firstName, "organized")
+      downloadPDF(mergedBytes, filename)
 
       setProgress(100)
       setActiveStep(2)
@@ -73,10 +113,11 @@ export function OrganizePDFWorkspace() {
 
   const handleReset = () => {
     setActiveStep(0)
-    setUploadedFile(null)
+    setUploadedFiles([])
     setOrganizedPages([])
     setError(null)
     setProgress(0)
+    setActiveSourceFilter("all")
   }
 
   return (
@@ -108,7 +149,16 @@ export function OrganizePDFWorkspace() {
         </Stack>
       </Box>
 
-      <Paper sx={{ p: { xs: 2.5, sm: 3, md: 4 }, mb: 3 }}>
+      <Paper
+        sx={{
+          p: { xs: 2.5, sm: 3, md: 4 },
+          mb: 3,
+          display: "flex",
+          flexDirection: "column",
+          height: activeStep === 0 ? "auto" : { xs: "auto", md: "calc(100vh - 210px)" },
+          maxHeight: activeStep === 0 ? "none" : { md: "calc(100vh - 210px)" },
+        }}
+      >
         <Stepper activeStep={activeStep} sx={{ mb: 4 }}>
           {stepsKeys.map((key) => (
             <Step key={key}>
@@ -132,30 +182,86 @@ export function OrganizePDFWorkspace() {
           </Alert>
         )}
 
-        {activeStep === 0 && <PDFUpload onFileSelect={handleFileLoaded} />}
+        {activeStep === 0 && <PDFUpload onFileSelect={handleFileLoaded} multiple />}
 
-        {activeStep === 1 && uploadedFile && (
-          <Box>
+        {activeStep === 1 && uploadedFiles.length > 0 && (
+          <Box sx={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0 }}>
             <Alert severity="info" sx={{ mb: 3 }}>
               {t("workspaces.organize.info")}
             </Alert>
 
-            <OrganizePageGrid pages={organizedPages} onReorder={handleReorderPages} onDelete={handleDeletePage} />
+            <Box sx={{ mb: 2, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 2 }}>
+              <Tabs
+                value={activeSourceFilter === "all" ? "all" : activeSourceFilter}
+                onChange={(_e, value) => setActiveSourceFilter(value)}
+                variant="scrollable"
+                scrollButtons="auto"
+              >
+                <Tab
+                  label={
+                    <Stack direction="row" spacing={1} alignItems="center">
+                      <Typography variant="body2">{t("workspaces.organize.allFiles", "All files")}</Typography>
+                      <Chip
+                        label={organizedPages.length}
+                        size="small"
+                        color="primary"
+                        sx={{ height: 20 }}
+                      />
+                    </Stack>
+                  }
+                  value="all"
+                />
+                {uploadedFiles.map((file, index) => (
+                  <Tab
+                    key={file.name + index}
+                    value={index}
+                    label={
+                      <Stack direction="row" spacing={1} alignItems="center">
+                        <Typography variant="body2" noWrap sx={{ maxWidth: 160 }}>
+                          {file.name.replace(/\.pdf$/i, "")}
+                        </Typography>
+                        <Chip
+                          label={file.totalPages}
+                          size="small"
+                          sx={{ height: 20 }}
+                        />
+                      </Stack>
+                    }
+                  />
+                ))}
+              </Tabs>
+            </Box>
 
-            <Stack 
-              direction="row" 
-              spacing={2} 
-              sx={{ 
-                mt: 4,
+            <Box sx={{ flex: 1, minHeight: 0, overflow: "auto", pr: 0.5 }}>
+              <OrganizePageGrid
+                pages={visiblePages}
+                onReorder={handleReorderPages}
+                onDelete={handleDeletePage}
+                sourceLabels={uploadedFiles.map((f) => f.name.replace(/\.pdf$/i, ""))}
+              />
+            </Box>
+
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              spacing={2}
+              sx={{
+                mt: 3,
                 pt: 3,
                 borderTop: "1px solid",
                 borderColor: "divider",
               }}
             >
+              <Button
+                variant="outlined"
+                onClick={() => setActiveStep(0)}
+                sx={{ minWidth: 140, width: { xs: "100%", sm: "auto" } }}
+              >
+                {t("workspaces.merge.addAnother")}
+              </Button>
               <Button 
                 variant="outlined" 
                 onClick={handleReset}
-                sx={{ minWidth: 100 }}
+                sx={{ minWidth: 100, width: { xs: "100%", sm: "auto" } }}
               >
                 {t("workspaces.organize.cancel")}
               </Button>
@@ -164,7 +270,7 @@ export function OrganizePDFWorkspace() {
                 startIcon={<DownloadIcon />}
                 onClick={handleSave}
                 disabled={isProcessing || organizedPages.length === 0}
-                sx={{ flex: 1, minWidth: 140 }}
+                sx={{ flex: { sm: 1 }, minWidth: 140, width: { xs: "100%", sm: "auto" } }}
               >
                 {isProcessing
                   ? t("workspaces.organize.processingButton")

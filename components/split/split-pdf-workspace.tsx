@@ -9,7 +9,7 @@ import { PDFUpload } from "@/components/pdf/pdf-upload"
 import { PDFPageSelector } from "@/components/pdf/pdf-page-selector"
 import { SplitOptionsPanel } from "@/components/split/split-options-panel"
 import type { PDFFileInfo } from "@/lib/pdf-utils"
-import { splitPDF, downloadPDF } from "@/lib/pdf-utils"
+import { splitPDF, downloadPDF, buildTuPDFFilename } from "@/lib/pdf-utils"
 import { addRecentFile } from "@/lib/recent-files"
 import { useTranslation } from "react-i18next"
 
@@ -54,11 +54,13 @@ export function SplitPDFWorkspace() {
       setProgress(70)
 
       results.forEach((pdfBytes, index) => {
-        const filename =
+        const baseName = uploadedFile.name
+        const extra =
           splitMode === "extract"
-            ? `${uploadedFile.name.replace(".pdf", "")}_extracted.pdf`
-            : `${uploadedFile.name.replace(".pdf", "")}_page_${pageRanges[index][0]}.pdf`
+            ? "extracted"
+            : `page_${pageRanges[index][0]}`
 
+        const filename = buildTuPDFFilename(baseName, "split", extra)
         downloadPDF(pdfBytes, filename)
       })
 

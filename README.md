@@ -1,4 +1,4 @@
-# 📃 [TuPDF](https://tupdf.vercel.app) - Online PDF Toolkit
+# 📃 TuPDF
 
 <p align="center">
   <a href="https://nextjs.org/"><img alt="Next.js" src="https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white"></a>
@@ -16,8 +16,6 @@
 
 **TuPDF** is a lightweight, open-source PDF toolkit designed for modern browsers.  
 All operations — from splitting to optimizing — run entirely on the client using Web APIs, ensuring **speed, privacy, and zero server dependencies**.
-
-**[Try it live](https://tupdf.vercel.app "TuPDF")**
 
 ---
 

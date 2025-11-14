@@ -16,7 +16,7 @@ export type SupportedLocale = (typeof supportedLocales)[number]
 export const localeLabels: Record<SupportedLocale, { label: string; emoji: string }> = {
   en: { label: "English", emoji: "🇺🇸" },
   zh: { label: "中文", emoji: "🇨🇳" },
-  es: { label: "Español", emoji: "🇪🇸" },
+  es: { label: "Español", emoji: "🇦🇷" },
   hi: { label: "हिंदी", emoji: "🇮🇳" },
   fr: { label: "Français", emoji: "🇫🇷" },
   de: { label: "Deutsch", emoji: "🇩🇪" },

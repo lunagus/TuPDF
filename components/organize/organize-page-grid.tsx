@@ -24,17 +24,28 @@ import ViewListIcon from "@mui/icons-material/ViewList"
 import type { PDFPageInfo } from "@/lib/pdf-utils"
 import React from "react"
 
+type GridPage = PDFPageInfo & { sourceIndex?: number }
+
 interface OrganizePageGridProps {
-  pages: PDFPageInfo[]
-  onReorder: (pages: PDFPageInfo[]) => void
-  onDelete: (pageNumber: number) => void
+  pages: GridPage[]
+  onReorder: (pages: GridPage[]) => void
+  onDelete: (sourceIndex: number, pageNumber: number) => void
+  sourceLabels?: string[]
 }
 
 type ViewMode = "small" | "large" | "list"
 
-export function OrganizePageGrid({ pages, onReorder, onDelete }: OrganizePageGridProps) {
+export function OrganizePageGrid({ pages, onReorder, onDelete, sourceLabels }: OrganizePageGridProps) {
   const [draggedIndex, setDraggedIndex] = React.useState<number | null>(null)
   const [viewMode, setViewMode] = React.useState<ViewMode>("small")
+
+  React.useEffect(() => {
+    if (pages.length > 20) {
+      setViewMode("small")
+    } else {
+      setViewMode("large")
+    }
+  }, [pages.length])
 
   const handleViewModeChange = (_event: React.MouseEvent<HTMLElement>, newMode: ViewMode | null) => {
     if (newMode !== null) {
@@ -81,12 +92,12 @@ export function OrganizePageGrid({ pages, onReorder, onDelete }: OrganizePageGri
   const gridColumns = {
     small: { xs: 6, sm: 4, md: 3, lg: 2 },
     large: { xs: 12, sm: 6, md: 4, lg: 3 },
-  }
+  } as const
 
   const thumbnailSize = {
     small: { width: "100%", aspectRatio: "3/4", maxHeight: "120px" },
     large: { width: "100%", aspectRatio: "3/4" },
-  }
+  } as const
 
   return (
     <Box>
@@ -158,7 +169,7 @@ export function OrganizePageGrid({ pages, onReorder, onDelete }: OrganizePageGri
                   <IconButton
                     edge="end"
                     size="small"
-                    onClick={() => onDelete(page.pageNumber)}
+                    onClick={() => onDelete(page.sourceIndex ?? 0, page.pageNumber)}
                     sx={{
                       "&:hover": {
                         backgroundColor: "error.main",
@@ -188,8 +199,11 @@ export function OrganizePageGrid({ pages, onReorder, onDelete }: OrganizePageGri
         </List>
       ) : (
         <Grid container spacing={viewMode === "small" ? 1 : 2}>
-          {pages.map((page, index) => (
-            <Grid item {...gridColumns[viewMode]} key={`${page.pageNumber}-${index}`}>
+          {pages.map((page, index) => {
+            const gridKey: "small" | "large" = viewMode === "large" ? "large" : "small"
+            const cols = gridColumns[gridKey]
+            return (
+              <Grid item xs={cols.xs} sm={cols.sm} md={cols.md} lg={cols.lg} key={`${page.pageNumber}-${index}`}>
               <Paper
                 draggable
                 onDragStart={(e) => handleDragStart(e, index)}
@@ -244,14 +258,14 @@ export function OrganizePageGrid({ pages, onReorder, onDelete }: OrganizePageGri
                       color: "white",
                     },
                   }}
-                  onClick={() => onDelete(page.pageNumber)}
+                  onClick={() => onDelete(page.sourceIndex ?? 0, page.pageNumber)}
                 >
                   <DeleteIcon fontSize="small" />
                 </IconButton>
 
                 <Box
                   sx={{
-                    ...thumbnailSize[viewMode],
+                    ...thumbnailSize[gridKey],
                     backgroundColor: "background.default",
                     borderRadius: 1,
                     mb: viewMode === "small" ? 0.5 : 1,
@@ -323,7 +337,8 @@ export function OrganizePageGrid({ pages, onReorder, onDelete }: OrganizePageGri
                 </Stack>
               </Paper>
             </Grid>
-          ))}
+            )
+          })}
         </Grid>
       )}
 

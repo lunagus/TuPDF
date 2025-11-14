@@ -24,7 +24,7 @@ import DownloadIcon from "@mui/icons-material/Download"
 import RestartAltIcon from "@mui/icons-material/RestartAlt"
 import { PDFUpload } from "@/components/pdf/pdf-upload"
 import type { PDFFileInfo } from "@/lib/pdf-utils"
-import { optimizePDF, downloadPDF } from "@/lib/pdf-utils"
+import { optimizePDF, downloadPDF, buildTuPDFFilename } from "@/lib/pdf-utils"
 import { useTranslation } from "react-i18next"
 
 const stepsKeys = [
@@ -74,7 +74,7 @@ export function OptimizePDFWorkspace() {
 
       setOptimizedSize(optimizedPdfBytes.length)
 
-      const filename = `${uploadedFile.name.replace(".pdf", "")}_optimized.pdf`
+      const filename = buildTuPDFFilename(uploadedFile.name, "optimized")
       downloadPDF(optimizedPdfBytes, filename)
 
       setProgress(100)

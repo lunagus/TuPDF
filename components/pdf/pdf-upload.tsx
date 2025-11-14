@@ -52,10 +52,15 @@ export function PDFUpload({ onFileLoaded, onFileSelect, multiple = false, accept
 
       const files = Array.from(e.dataTransfer.files)
       if (files.length > 0) {
-        handleFile(files[0])
+        files.forEach((file) => {
+          if (accept && !file.name.toLowerCase().endsWith(accept.replace(".", "").toLowerCase())) {
+            return
+          }
+          handleFile(file)
+        })
       }
     },
-    [handleFile],
+    [handleFile, accept],
   )
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
@@ -72,7 +77,9 @@ export function PDFUpload({ onFileLoaded, onFileSelect, multiple = false, accept
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const files = e.target.files
       if (files && files.length > 0) {
-        handleFile(files[0])
+        Array.from(files).forEach((file) => {
+          handleFile(file)
+        })
       }
     },
     [handleFile],

@@ -46,6 +46,22 @@ export interface PDFFileInfo {
 }
 
 /**
+ * Build a TuPDF-branded filename based on the original filename and operation.
+ *
+ * The resulting pattern is:
+ *   [original-name-without-ext]-[operation][-extra]-TuPDF.pdf
+ */
+export function buildTuPDFFilename(originalName: string, operation: string, extra?: string): string {
+  const base = originalName.replace(/\.pdf$/i, "")
+  const parts = [base, operation]
+  if (extra && extra.trim().length > 0) {
+    parts.push(extra.trim())
+  }
+  parts.push("TuPDF")
+  return `${parts.join("-")}.pdf`
+}
+
+/**
  * Load a PDF file and extract page information with validation
  */
 export async function loadPDFFile(file: File, password?: string): Promise<PDFFileInfo> {
@@ -210,6 +226,38 @@ export async function mergePDFs(pdfDocs: PDFDocument[]): Promise<Uint8Array> {
     copiedPages.forEach((page: any) => {
       mergedPdf.addPage(page)
     })
+  }
+
+  const pdfBytes = await mergedPdf.save()
+  return pdfBytes
+}
+
+/**
+ * Merge pages from multiple source files in an explicit page order.
+ *
+ * This is useful for operations like "Organize" where the user can
+ * rearrange pages originating from different PDFs into a single stream.
+ */
+export async function mergePagesFromFiles(
+  files: PDFFileInfo[],
+  orderedPages: { sourceIndex: number; pageNumber: number }[],
+): Promise<Uint8Array> {
+  const mergedPdf = await PDFDocument.create()
+
+  for (const ref of orderedPages) {
+    const sourceFile = files[ref.sourceIndex]
+    if (!sourceFile) {
+      continue
+    }
+
+    const pdfDoc = sourceFile.pdfDoc
+    const pageIndex = ref.pageNumber - 1
+    if (pageIndex < 0 || pageIndex >= pdfDoc.getPageCount()) {
+      continue
+    }
+
+    const [copiedPage] = await mergedPdf.copyPages(pdfDoc, [pageIndex])
+    mergedPdf.addPage(copiedPage)
   }
 
   const pdfBytes = await mergedPdf.save()

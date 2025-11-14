@@ -9,7 +9,7 @@ import AddIcon from "@mui/icons-material/Add"
 import { PDFUpload } from "@/components/pdf/pdf-upload"
 import { MergeFileList } from "@/components/merge/merge-file-list"
 import type { PDFFileInfo } from "@/lib/pdf-utils"
-import { mergePDFs, downloadPDF } from "@/lib/pdf-utils"
+import { mergePDFs, downloadPDF, buildTuPDFFilename } from "@/lib/pdf-utils"
 import { useTranslation } from "react-i18next"
 
 const stepsKeys = ["workspaces.merge.steps.upload", "workspaces.merge.steps.arrange", "workspaces.merge.steps.merge"] as const
@@ -56,7 +56,8 @@ export function MergePDFWorkspace() {
       const mergedPdfBytes = await mergePDFs(pdfDocs)
       setProgress(80)
 
-      const filename = `merged_${new Date().getTime()}.pdf`
+      const firstName = uploadedFiles[0].name
+      const filename = buildTuPDFFilename(firstName, "merged")
       downloadPDF(mergedPdfBytes, filename)
 
       setProgress(100)
