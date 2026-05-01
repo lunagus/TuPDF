@@ -1,48 +1,43 @@
 "use client"
 
 import type React from "react"
-
 import { useCallback, useState } from "react"
 import { Box, Paper, Typography, Button, Stack, CircularProgress, Alert } from "@mui/material"
 import CloudUploadIcon from "@mui/icons-material/CloudUpload"
-import DescriptionIcon from "@mui/icons-material/Description"
-import { loadPDFFile, type PDFFileInfo } from "@/lib/pdf-utils"
-import { formatError, logError } from "@/lib/error-handler"
+import ImageIcon from "@mui/icons-material/Image"
 import { useTranslation } from "react-i18next"
 
-interface PDFUploadProps {
-  onFileLoaded?: (fileInfo: PDFFileInfo) => void
-  onFileSelect?: (fileInfo: PDFFileInfo) => void
-  multiple?: boolean
+interface ImageUploadProps {
+  onFilesSelected: (files: File[]) => void
   accept?: string
 }
 
-export function PDFUpload({ onFileLoaded, onFileSelect, multiple = false, accept = ".pdf" }: PDFUploadProps) {
+export function ImageUpload({ onFilesSelected, accept = "image/png, image/jpeg, image/jpg" }: ImageUploadProps) {
   const [isDragging, setIsDragging] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const { t } = useTranslation()
 
-  const handleFile = useCallback(
-    async (file: File) => {
+  const handleFiles = useCallback(
+    (files: File[]) => {
       setIsLoading(true)
       setError(null)
 
       try {
-        const savedPassword = localStorage.getItem("pdfPassword") || undefined
-        const fileInfo = await loadPDFFile(file, savedPassword)
-        onFileLoaded?.(fileInfo)
-        onFileSelect?.(fileInfo)
+        const validFiles = files.filter((file) => file.type.startsWith("image/"))
+        if (validFiles.length === 0) {
+          throw new Error("No valid image files selected.")
+        }
+        onFilesSelected(validFiles)
       } catch (err) {
-        logError(err, "PDF Upload")
-        const formattedError = formatError(err)
-        setError(formattedError.message)
-        console.error("[TuPDF] PDF loading error:", err)
+        const message = err instanceof Error ? err.message : "Error loading images"
+        setError(message)
+        console.error("[TuPDF] Image loading error:", err)
       } finally {
         setIsLoading(false)
       }
     },
-    [onFileLoaded, onFileSelect],
+    [onFilesSelected],
   )
 
   const handleDrop = useCallback(
@@ -52,15 +47,10 @@ export function PDFUpload({ onFileLoaded, onFileSelect, multiple = false, accept
 
       const files = Array.from(e.dataTransfer.files)
       if (files.length > 0) {
-        files.forEach((file) => {
-          if (accept && !file.name.toLowerCase().endsWith(accept.replace(".", "").toLowerCase())) {
-            return
-          }
-          handleFile(file)
-        })
+        handleFiles(files)
       }
     },
-    [handleFile, accept],
+    [handleFiles],
   )
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
@@ -77,12 +67,10 @@ export function PDFUpload({ onFileLoaded, onFileSelect, multiple = false, accept
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const files = e.target.files
       if (files && files.length > 0) {
-        Array.from(files).forEach((file) => {
-          handleFile(file)
-        })
+        handleFiles(Array.from(files))
       }
     },
-    [handleFile],
+    [handleFiles],
   )
 
   return (
@@ -132,15 +120,15 @@ export function PDFUpload({ onFileLoaded, onFileSelect, multiple = false, accept
             </Box>
             <Box>
               <Typography variant="h6" gutterBottom fontWeight={600}>
-                {t("workspaces.upload.dropHere")}
+                {t("workspaces.imageToPdf.steps.upload")}
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 {t("workspaces.upload.clickToBrowse")}
               </Typography>
             </Box>
-            <Button variant="contained" component="label" startIcon={<DescriptionIcon />} size="large">
-              {t("workspaces.upload.selectFile")}
-              <input type="file" hidden accept={accept} multiple={multiple} onChange={handleFileInput} />
+            <Button variant="contained" component="label" startIcon={<ImageIcon />} size="large">
+              Select Images
+              <input type="file" hidden accept={accept} multiple onChange={handleFileInput} />
             </Button>
           </Box>
         )}
@@ -148,22 +136,9 @@ export function PDFUpload({ onFileLoaded, onFileSelect, multiple = false, accept
 
       {error && (
         <Alert severity="error" sx={{ mt: 2 }} onClose={() => setError(null)}>
-          <Typography variant="body2" fontWeight={600} gutterBottom>
+          <Typography variant="body2" fontWeight={600}>
             {error}
           </Typography>
-          {error.includes("password") || error.includes("encrypted") ? (
-            <Typography variant="caption">
-              {t("workspaces.upload.errors.encrypted")}
-            </Typography>
-          ) : error.includes("size") || error.includes("too large") ? (
-            <Typography variant="caption">
-              {t("workspaces.upload.errors.size")}
-            </Typography>
-          ) : error.includes("corrupted") || error.includes("invalid") ? (
-            <Typography variant="caption">
-              {t("workspaces.upload.errors.corrupted")}
-            </Typography>
-          ) : null}
         </Alert>
       )}
     </Box>

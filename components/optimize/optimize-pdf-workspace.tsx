@@ -113,7 +113,7 @@ export function OptimizePDFWorkspace() {
   return (
     <Box>
       <Box sx={{ mb: 4 }}>
-        <Stack direction="row" alignItems="center" spacing={2.5}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2.5 }}>
           <Box
             sx={{
               width: 56,
@@ -136,7 +136,7 @@ export function OptimizePDFWorkspace() {
               {t("workspaces.optimize.subtitle")}
             </Typography>
           </Box>
-        </Stack>
+        </Box>
       </Box>
 
       <Paper sx={{ p: { xs: 2.5, sm: 3, md: 4 }, mb: 3 }}>

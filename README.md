@@ -48,6 +48,13 @@ Transform your PDFs into image files for sharing or web use:
 - Adjustable DPI and scaling options (in development).  
 - Great for previews, thumbnails, and online document sharing.
 
+### 📸 Images to PDF
+Combine and transform multiple image files into a single polished PDF document:
+- **Pro-grade Cropping**: Freely crop and reframe each image using interactive boundaries.
+- **Intelligent Layouts**: Force the PDF to standard A4 or US Letter sizes, or strictly fit the image dimensions.
+- **Smart Image Fit**: Choose whether to Contain or Cover images perfectly onto the page.
+- **Live Filters**: Adjust brightness and contrast globally to ensure a uniform look across your final PDF.
+
 ### ⚙️ Optimize & Compress  
 Reduce file size without losing clarity:  
 - Smart compression balancing **image quality** and **file weight**.  

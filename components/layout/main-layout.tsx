@@ -27,6 +27,7 @@ import Brightness4Icon from "@mui/icons-material/Brightness4"
 import Brightness7Icon from "@mui/icons-material/Brightness7"
 import DescriptionIcon from "@mui/icons-material/Description"
 import ImageIcon from "@mui/icons-material/Image"
+import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf"
 import MenuIcon from "@mui/icons-material/Menu"
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft"
 import ChevronRightIcon from "@mui/icons-material/ChevronRight"
@@ -78,6 +79,7 @@ export function MainLayout({ children }: MainLayoutProps) {
     { text: t("nav.merge"), icon: <MergeIcon />, path: "/merge" },
     { text: t("nav.organize"), icon: <ReorderIcon />, path: "/organize" },
     { text: t("nav.convert"), icon: <ImageIcon />, path: "/convert" },
+    { text: t("nav.imageToPdf"), icon: <PictureAsPdfIcon />, path: "/image-to-pdf" },
     { text: t("nav.optimize"), icon: <CompressIcon />, path: "/optimize" },
     { text: t("nav.recent"), icon: <HistoryIcon />, path: "/recent" },
   ]
@@ -126,11 +128,12 @@ export function MainLayout({ children }: MainLayoutProps) {
                 </ListItemIcon>
                 {!collapsed && (
                   <ListItemText
-                    primary={item.text}
-                    primaryTypographyProps={{
-                      fontSize: "0.95rem",
-                      fontWeight: 500,
-                    }}
+                    disableTypography
+                    primary={
+                      <Typography sx={{ fontSize: "0.95rem", fontWeight: 500 }}>
+                        {item.text}
+                      </Typography>
+                    }
                   />
                 )}
               </ListItemButton>

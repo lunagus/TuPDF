@@ -8,6 +8,7 @@
     "merge": "Merge PDFs",
     "organize": "Organize Pages",
     "convert": "PDF to Images",
+    "imageToPdf": "Images to PDF",
     "optimize": "Optimize PDF",
     "recent": "Recent Files",
     "settings": "Settings"
@@ -86,15 +87,28 @@
     }
   },
   "validation": {
-    "merge": { "needTwo": "Please upload at least 2 PDF files to merge" },
-    "organize": { "noPages": "No pages to save" },
-    "optimize": { "noFile": "No file to optimize" }
+    "merge": {
+      "needTwo": "Please upload at least 2 PDF files to merge"
+    },
+    "organize": {
+      "noPages": "No pages to save"
+    },
+    "optimize": {
+      "noFile": "No file to optimize"
+    },
+    "imageToPdf": {
+      "noFile": "No images to convert"
+    }
   },
   "workspaces": {
     "merge": {
       "title": "Merge PDFs",
       "subtitle": "Combine multiple PDF files into one document",
-      "steps": { "upload": "Upload PDFs", "arrange": "Arrange Order", "merge": "Merge & Download" },
+      "steps": {
+        "upload": "Upload PDFs",
+        "arrange": "Arrange Order",
+        "merge": "Merge & Download"
+      },
       "processing": "Merging PDFs... {{progress}}%",
       "addAnother": "Add Another PDF",
       "cancel": "Cancel",
@@ -109,7 +123,11 @@
     "split": {
       "title": "Split PDF",
       "subtitle": "Extract pages or split your PDF into multiple files",
-      "steps": { "upload": "Upload PDF", "select": "Select Pages", "split": "Split & Download" },
+      "steps": {
+        "upload": "Upload PDF",
+        "select": "Select Pages",
+        "split": "Split & Download"
+      },
       "processing": "Processing... {{progress}}%",
       "cancel": "Cancel",
       "splitButton": "Split PDF",
@@ -121,7 +139,11 @@
     "organize": {
       "title": "Organize Pages",
       "subtitle": "Reorder, delete, or rearrange pages from your PDF",
-      "steps": { "upload": "Upload PDF", "organize": "Organize Pages", "save": "Save & Download" },
+      "steps": {
+        "upload": "Upload PDF",
+        "organize": "Organize Pages",
+        "save": "Save & Download"
+      },
       "processing": "Organizing pages... {{progress}}%",
       "info": "Drag pages to reorder them or click the delete button to remove pages. Changes will be saved when you click \"Save PDF\".",
       "cancel": "Cancel",
@@ -134,8 +156,15 @@
     "convert": {
       "title": "PDF to Images",
       "subtitle": "Convert PDF pages to high-quality images",
-      "steps": { "upload": "Upload PDF", "select": "Select Pages", "convert": "Convert & Download" },
-      "errors": { "noDoc": "PDF document not available. Please reload the PDF.", "convertFail": "Failed to convert PDF pages to images" },
+      "steps": {
+        "upload": "Upload PDF",
+        "select": "Select Pages",
+        "convert": "Convert & Download"
+      },
+      "errors": {
+        "noDoc": "PDF document not available. Please reload the PDF.",
+        "convertFail": "Failed to convert PDF pages to images"
+      },
       "progress": "Converting pages... {{progress}}% ({{done}}/{{total}} completed)",
       "imageFormat": {
         "label": "Image Format",
@@ -151,19 +180,77 @@
       "successSingle": "The image has been downloaded.",
       "convertAnother": "Convert Another PDF"
     },
+    "imageToPdf": {
+      "title": "Images to PDF",
+      "subtitle": "Convert and combine multiple images into a single PDF document",
+      "steps": {
+        "upload": "Upload Images",
+        "edit": "Crop & Edit",
+        "convert": "Convert to PDF"
+      },
+      "info": "Crop, zoom, and adjust brightness/contrast for your images before converting.",
+      "addAnother": "Add Another Image",
+      "cancel": "Cancel",
+      "convertButton": "Convert Images to PDF",
+      "successTitle": "Images Converted Successfully!",
+      "successBody": "Your PDF has been downloaded to your device",
+      "convertAnother": "Convert More Images",
+      "errors": {
+        "convertFail": "Failed to convert images to PDF"
+      },
+      "layout": {
+        "title": "Page Layout",
+        "fit": {
+          "title": "Fit Image",
+          "desc": "PDF page matches image size exactly"
+        },
+        "a4": {
+          "title": "A4 (Standard)",
+          "desc": "Standard A4 paper size (595×842 pt)"
+        },
+        "letter": {
+          "title": "US Letter",
+          "desc": "Standard US Letter size (612×792 pt)"
+        }
+      },
+      "imageFit": {
+        "title": "Image Fit",
+        "contain": {
+          "title": "Contain",
+          "desc": "Fit image within page without cropping"
+        },
+        "cover": {
+          "title": "Cover",
+          "desc": "Fill entire page (may crop image edges)"
+        }
+      }
+    },
     "optimize": {
       "title": "Optimize PDF",
       "subtitle": "Reduce file size while maintaining quality",
-      "steps": { "upload": "Upload PDF", "quality": "Select Quality", "optimize": "Optimize & Download" },
+      "steps": {
+        "upload": "Upload PDF",
+        "quality": "Select Quality",
+        "optimize": "Optimize & Download"
+      },
       "processing": "Optimizing PDF... {{progress}}%",
       "info": "Choose the optimization level. Lower quality means smaller file size but may reduce image quality.",
       "fileInfo": "File Information",
       "pages": "{{count}} pages",
       "qualityLabel": "Optimization Quality",
       "quality": {
-        "low": { "title": "Maximum Compression", "desc": "Smallest file size - Best for sharing and web use" },
-        "medium": { "title": "Balanced", "desc": "Good balance between size and quality" },
-        "high": { "title": "Minimal Compression", "desc": "Best quality - Larger file size" }
+        "low": {
+          "title": "Maximum Compression",
+          "desc": "Smallest file size - Best for sharing and web use"
+        },
+        "medium": {
+          "title": "Balanced",
+          "desc": "Good balance between size and quality"
+        },
+        "high": {
+          "title": "Minimal Compression",
+          "desc": "Best quality - Larger file size"
+        }
       },
       "cancel": "Cancel",
       "optimizeButton": "Optimize PDF",
@@ -176,7 +263,10 @@
       "optimizeAnother": "Optimize Another PDF"
     },
     "upload": {
-      "loading": { "title": "Loading PDF...", "caption": "This may take a moment for large files" },
+      "loading": {
+        "title": "Loading PDF...",
+        "caption": "This may take a moment for large files"
+      },
       "dropHere": "Drop your PDF here",
       "clickToBrowse": "or click to browse files",
       "selectFile": "Select PDF File",
@@ -205,9 +295,23 @@
     "splitOptions": {
       "title": "Split Mode",
       "modes": {
-        "extract": { "title": "Extract Pages", "desc": "Extract selected pages into a single new PDF file", "chip": "{{count}} pages selected", "chipEmpty": "No pages selected" },
-        "ranges": { "title": "Split Selected", "desc": "Split each selected page into a separate PDF file", "chip": "Will create {{count}} PDF files", "chipEmpty": "No pages selected" },
-        "every": { "title": "Split All Pages", "desc": "Split every page into a separate PDF file", "chip": "Will create {{count}} PDF files" }
+        "extract": {
+          "title": "Extract Pages",
+          "desc": "Extract selected pages into a single new PDF file",
+          "chip": "{{count}} pages selected",
+          "chipEmpty": "No pages selected"
+        },
+        "ranges": {
+          "title": "Split Selected",
+          "desc": "Split each selected page into a separate PDF file",
+          "chip": "Will create {{count}} PDF files",
+          "chipEmpty": "No pages selected"
+        },
+        "every": {
+          "title": "Split All Pages",
+          "desc": "Split every page into a separate PDF file",
+          "chip": "Will create {{count}} PDF files"
+        }
       }
     }
   }

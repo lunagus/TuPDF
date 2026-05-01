@@ -1,14 +1,47 @@
 {
-  "app": {"title": "TuPDF", "subtitle": "Ferramenta moderna para organizar, dividir e mesclar PDFs"},
-  "nav": {"split": "Dividir PDF", "merge": "Mesclar PDFs", "organize": "Organizar páginas", "convert": "PDF para Imagens", "optimize": "Otimizar PDF", "recent": "Arquivos recentes", "settings": "Configurações"},
+  "app": {
+    "title": "TuPDF",
+    "subtitle": "Ferramenta moderna para organizar, dividir e mesclar PDFs"
+  },
+  "nav": {
+    "split": "Dividir PDF",
+    "merge": "Mesclar PDFs",
+    "organize": "Organizar páginas",
+    "convert": "PDF para Imagens",
+    "optimize": "Otimizar PDF",
+    "recent": "Arquivos recentes",
+    "settings": "Configurações"
+  },
   "settings": {
     "title": "Configurações",
     "subtitle": "Personalize sua experiência no TuPDF",
     "saved": "Configurações salvas com sucesso!",
-    "language": {"title": "Idioma"},
-    "appearance": {"title": "Aparência", "darkMode": {"label": "Modo escuro", "helper": "Use o tema escuro para melhor visualização em pouca luz"}},
-    "processing": {"title": "Processamento de PDF", "autoSave": {"label": "Salvar automaticamente arquivos processados", "helper": "Salvar automaticamente após o processamento"}},
-    "encrypted": {"title": "PDFs criptografados", "helper": "Se você trabalha com PDFs protegidos por senha, insira a senha aqui. Será usada para descriptografar durante o processamento.", "password": {"label": "Senha do PDF", "placeholder": "Digite a senha para PDFs criptografados", "helpText": "Esta senha será armazenada localmente e usada para todos os PDFs criptografados"}},
+    "language": {
+      "title": "Idioma"
+    },
+    "appearance": {
+      "title": "Aparência",
+      "darkMode": {
+        "label": "Modo escuro",
+        "helper": "Use o tema escuro para melhor visualização em pouca luz"
+      }
+    },
+    "processing": {
+      "title": "Processamento de PDF",
+      "autoSave": {
+        "label": "Salvar automaticamente arquivos processados",
+        "helper": "Salvar automaticamente após o processamento"
+      }
+    },
+    "encrypted": {
+      "title": "PDFs criptografados",
+      "helper": "Se você trabalha com PDFs protegidos por senha, insira a senha aqui. Será usada para descriptografar durante o processamento.",
+      "password": {
+        "label": "Senha do PDF",
+        "placeholder": "Digite a senha para PDFs criptografados",
+        "helpText": "Esta senha será armazenada localmente e usada para todos os PDFs criptografados"
+      }
+    },
     "save": "Salvar configurações"
   },
   "recent": {
@@ -23,7 +56,10 @@
       "days": "Há {{count}} dia{{plural}}"
     }
   },
-  "common": {"toggleThemeAria": "Alternar tema", "pages": "{{count}} página{{plural}}"},
+  "common": {
+    "toggleThemeAria": "Alternar tema",
+    "pages": "{{count}} página{{plural}}"
+  },
   "footer": {
     "feedback": {
       "open": "Enviar feedback",
@@ -48,7 +84,11 @@
     "split": {
       "title": "Dividir PDF",
       "subtitle": "Extrair páginas ou dividir seu PDF em vários arquivos",
-      "steps": { "upload": "Enviar PDF", "select": "Selecionar páginas", "split": "Dividir e baixar" },
+      "steps": {
+        "upload": "Enviar PDF",
+        "select": "Selecionar páginas",
+        "split": "Dividir e baixar"
+      },
       "processing": "Processando... {{progress}}%",
       "cancel": "Cancelar",
       "splitButton": "Dividir PDF",
@@ -58,7 +98,10 @@
       "splitAnother": "Dividir outro PDF"
     },
     "upload": {
-      "loading": { "title": "Carregando PDF...", "caption": "Isso pode levar um momento para arquivos grandes" },
+      "loading": {
+        "title": "Carregando PDF...",
+        "caption": "Isso pode levar um momento para arquivos grandes"
+      },
       "dropHere": "Solte seu PDF aqui",
       "clickToBrowse": "ou clique para procurar arquivos",
       "selectFile": "Selecionar arquivo PDF",
@@ -71,7 +114,11 @@
     "merge": {
       "title": "Mesclar PDFs",
       "subtitle": "Combine vários PDFs em um único documento",
-      "steps": { "upload": "Enviar PDFs", "arrange": "Organizar ordem", "merge": "Mesclar e baixar" },
+      "steps": {
+        "upload": "Enviar PDFs",
+        "arrange": "Organizar ordem",
+        "merge": "Mesclar e baixar"
+      },
       "processing": "Mesclando PDFs... {{progress}}%",
       "addAnother": "Adicionar outro PDF",
       "cancel": "Cancelar",
@@ -86,7 +133,11 @@
     "organize": {
       "title": "Organizar páginas",
       "subtitle": "Reordenar, excluir ou reorganizar páginas do seu PDF",
-      "steps": { "upload": "Enviar PDF", "organize": "Organizar páginas", "save": "Salvar e baixar" },
+      "steps": {
+        "upload": "Enviar PDF",
+        "organize": "Organizar páginas",
+        "save": "Salvar e baixar"
+      },
       "processing": "Organizando páginas... {{progress}}%",
       "info": "Arraste para reorganizar ou exclua páginas. As alterações serão salvas ao clicar em \"Salvar PDF\".",
       "cancel": "Cancelar",
@@ -99,10 +150,21 @@
     "convert": {
       "title": "PDF para Imagens",
       "subtitle": "Converter páginas de PDF em imagens de alta qualidade",
-      "steps": { "upload": "Enviar PDF", "select": "Selecionar páginas", "convert": "Converter e baixar" },
-      "errors": { "noDoc": "Documento PDF indisponível. Recarregue o PDF.", "convertFail": "Falha ao converter páginas em imagens" },
+      "steps": {
+        "upload": "Enviar PDF",
+        "select": "Selecionar páginas",
+        "convert": "Converter e baixar"
+      },
+      "errors": {
+        "noDoc": "Documento PDF indisponível. Recarregue o PDF.",
+        "convertFail": "Falha ao converter páginas em imagens"
+      },
       "progress": "Convertendo páginas... {{progress}}% ({{done}}/{{total}} concluídas)",
-      "imageFormat": { "label": "Formato de imagem", "png": "PNG (Maior qualidade)", "jpg": "JPG (Tamanho menor)" },
+      "imageFormat": {
+        "label": "Formato de imagem",
+        "png": "PNG (Maior qualidade)",
+        "jpg": "JPG (Tamanho menor)"
+      },
       "cancel": "Cancelar",
       "convertButton": "Converter {{count}} página{{plural}}",
       "convertingTitle": "Convertendo páginas em imagens...",
@@ -115,16 +177,29 @@
     "optimize": {
       "title": "Otimizar PDF",
       "subtitle": "Reduzir o tamanho do arquivo mantendo a qualidade",
-      "steps": { "upload": "Enviar PDF", "quality": "Selecionar qualidade", "optimize": "Otimizar e baixar" },
+      "steps": {
+        "upload": "Enviar PDF",
+        "quality": "Selecionar qualidade",
+        "optimize": "Otimizar e baixar"
+      },
       "processing": "Otimizando PDF... {{progress}}%",
       "info": "Escolha o nível de otimização. Qualidade menor significa arquivo menor.",
       "fileInfo": "Informações do arquivo",
       "pages": "{{count}} páginas",
       "qualityLabel": "Qualidade de otimização",
       "quality": {
-        "low": { "title": "Compressão máxima", "desc": "Menor arquivo - ideal para compartilhamento" },
-        "medium": { "title": "Equilibrado", "desc": "Bom equilíbrio entre tamanho e qualidade" },
-        "high": { "title": "Compressão mínima", "desc": "Melhor qualidade - tamanho maior" }
+        "low": {
+          "title": "Compressão máxima",
+          "desc": "Menor arquivo - ideal para compartilhamento"
+        },
+        "medium": {
+          "title": "Equilibrado",
+          "desc": "Bom equilíbrio entre tamanho e qualidade"
+        },
+        "high": {
+          "title": "Compressão mínima",
+          "desc": "Melhor qualidade - tamanho maior"
+        }
       },
       "cancel": "Cancelar",
       "optimizeButton": "Otimizar PDF",
@@ -135,6 +210,56 @@
       "optimizedSize": "Tamanho otimizado",
       "saved": "Economia",
       "optimizeAnother": "Otimizar outro PDF"
+    },
+    "imageToPdf": {
+      "title": "Imagens para PDF",
+      "subtitle": "Converta e combine várias imagens em um único documento PDF",
+      "steps": {
+        "upload": "Enviar Imagens",
+        "edit": "Cortar e Editar",
+        "convert": "Converter para PDF"
+      },
+      "info": "Corte, dê zoom e ajuste o brilho/contraste das suas imagens antes de converter.",
+      "addAnother": "Adicionar Outra Imagem",
+      "cancel": "Cancelar",
+      "convertButton": "Converter Imagens para PDF",
+      "successTitle": "Imagens Convertidas com Sucesso!",
+      "successBody": "O seu PDF foi baixado para o seu dispositivo",
+      "convertAnother": "Converter Mais Imagens",
+      "errors": {
+        "convertFail": "Falha ao converter imagens para PDF"
+      },
+      "layout": {
+        "title": "Layout da Página",
+        "fit": {
+          "title": "Ajustar Imagem",
+          "desc": "A página do PDF corresponde exatamente ao tamanho da imagem"
+        },
+        "a4": {
+          "title": "A4 (Padrão)",
+          "desc": "Tamanho de papel A4 padrão (595×842 pt)"
+        },
+        "letter": {
+          "title": "Carta EUA",
+          "desc": "Tamanho Carta padrão (612×792 pt)"
+        }
+      },
+      "imageFit": {
+        "title": "Preenchimento da Imagem",
+        "contain": {
+          "title": "Conter",
+          "desc": "Ajustar imagem dentro da página sem cortar"
+        },
+        "cover": {
+          "title": "Cobrir",
+          "desc": "Preencher toda a página (pode cortar as bordas da imagem)"
+        }
+      }
+    }
+  },
+  "validation": {
+    "imageToPdf": {
+      "noFile": "Nenhuma imagem para converter"
     }
   }
 }
