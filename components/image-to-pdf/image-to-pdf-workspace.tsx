@@ -260,7 +260,7 @@ export function ImageToPdfWorkspace() {
             <PictureAsPdfIcon sx={{ fontSize: 28, color: "#009688" }} />
           </Box>
           <Box sx={{ flex: 1, minWidth: 0 }}>
-            <Typography variant="h4" fontWeight={600} sx={{ mb: 0.5 }}>
+            <Typography variant="h4" sx={{ mb: 0.5, fontWeight: 600 }}>
               {t("workspaces.imageToPdf.title")}
             </Typography>
             <Typography variant="body2" color="text.secondary">
@@ -424,10 +424,10 @@ export function ImageToPdfWorkspace() {
 
             <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4, mb: 4 }}>
               <Box sx={{ flex: 1 }}>
-                <Typography variant="subtitle1" gutterBottom fontWeight={600}>{t("workspaces.imageToPdf.settings.filters")}</Typography>
+                <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 600 }}>{t("workspaces.imageToPdf.filters", "Filters")}</Typography>
                 <Box sx={{ mb: 3 }}>
                   <Typography id="brightness-slider" gutterBottom>
-                    {t("workspaces.imageToPdf.settings.brightness")} ({brightness}%)
+                    {t("workspaces.imageToPdf.brightness", "Brightness")} ({brightness}%)
                   </Typography>
                   <Slider
                     value={brightness}
@@ -440,7 +440,7 @@ export function ImageToPdfWorkspace() {
                 </Box>
                 <Box>
                   <Typography id="contrast-slider" gutterBottom>
-                    {t("workspaces.imageToPdf.settings.contrast")} ({contrast}%)
+                    {t("workspaces.imageToPdf.contrast", "Contrast")} ({contrast}%)
                   </Typography>
                   <Slider
                     value={contrast}
@@ -454,22 +454,22 @@ export function ImageToPdfWorkspace() {
               </Box>
 
               <Box sx={{ flex: 1 }}>
-                <Typography variant="subtitle1" gutterBottom fontWeight={600}>{t("workspaces.imageToPdf.settings.pageSize")}</Typography>
+                <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 600 }}>{t("workspaces.imageToPdf.layout.title")}</Typography>
                 <FormControl component="fieldset" sx={{ mb: 3, display: 'block' }}>
                   <RadioGroup value={pageSize} onChange={(e) => setPageSize(e.target.value as any)}>
-                    <FormControlLabel value="fit" control={<Radio />} label={t("workspaces.imageToPdf.settings.fitToImage")} />
-                    <FormControlLabel value="a4" control={<Radio />} label={t("workspaces.imageToPdf.settings.a4")} />
-                    <FormControlLabel value="letter" control={<Radio />} label={t("workspaces.imageToPdf.settings.letter")} />
+                    <FormControlLabel value="fit" control={<Radio />} label={t("workspaces.imageToPdf.layout.fit.title")} />
+                    <FormControlLabel value="a4" control={<Radio />} label={t("workspaces.imageToPdf.layout.a4.title")} />
+                    <FormControlLabel value="letter" control={<Radio />} label={t("workspaces.imageToPdf.layout.letter.title")} />
                   </RadioGroup>
                 </FormControl>
 
                 {pageSize !== "fit" && (
                   <>
-                    <Typography variant="subtitle1" gutterBottom fontWeight={600}>{t("workspaces.imageToPdf.settings.imageFit")}</Typography>
+                    <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 600 }}>{t("workspaces.imageToPdf.imageFit.title")}</Typography>
                     <FormControl component="fieldset" sx={{ display: 'block' }}>
                       <RadioGroup value={imageFit} onChange={(e) => setImageFit(e.target.value as any)}>
-                        <FormControlLabel value="contain" control={<Radio />} label={t("workspaces.imageToPdf.settings.contain")} />
-                        <FormControlLabel value="cover" control={<Radio />} label={t("workspaces.imageToPdf.settings.cover")} />
+                        <FormControlLabel value="contain" control={<Radio />} label={t("workspaces.imageToPdf.imageFit.contain.title")} />
+                        <FormControlLabel value="cover" control={<Radio />} label={t("workspaces.imageToPdf.imageFit.cover.title")} />
                       </RadioGroup>
                     </FormControl>
                   </>
